@@ -1,0 +1,3 @@
+[submodule "cpae"]
+	path = cpae
+	url = https://github.com/tombosc/cpae.git
