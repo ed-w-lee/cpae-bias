@@ -6,7 +6,6 @@ import argparse
 import random
 import json
 from collections import defaultdict, Counter
-import matplotlib.pyplot as plt
 import numpy as np
 
 def main():
