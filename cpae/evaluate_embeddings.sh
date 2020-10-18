@@ -4,7 +4,7 @@
 # Then, evaluate them
 
 # Set some flags.
-export PYTHONPATH=$PWD:$PWD/word-embeddings-benchmarks:$PYTHONPATH
+export PYTHONPATH=$PWD:$PWD/word_embeddings_benchmarks:$PYTHONPATH
 export FUEL_DATA_PATH=$PWD"/data/en_wn_full"
 export THEANO_FLAGS="optimizer=fast_run,device=cuda0,floatX=float32,gpuarray.preallocate=1,allow_gc=False"
 export WEB_DATA="$PWD"
@@ -32,5 +32,5 @@ do
 	# generate embeddings
 	python bin/generate_embeddings.py "$MODEL" "$RESULTS_DIR"/"$MODEL"/"$MODEL_FNAME" --dest="$EMB_DIR"/"$MODEL" --part=all --format='dict' --encoder-embeddings="if_missing" 
 	# evaluate embeddings
-	python word-embeddings-benchmarks/scripts/evaluate_on_all.py -f "$EMB_DIR/$MODEL/if_mis_e_embeddings.pkl" -o "$EMB_DIR/${MODEL}/eval" -p dict 2>&1 | tee "$EMB_DIR/${MODEL}/coverage_and_eval"
+	python word_embeddings_benchmarks/scripts/evaluate_on_all.py -f "$EMB_DIR/$MODEL/if_mis_e_embeddings.pkl" -o "$EMB_DIR/${MODEL}/eval" -p dict 2>&1 | tee "$EMB_DIR/${MODEL}/coverage_and_eval"
 done

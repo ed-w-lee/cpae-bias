@@ -39,6 +39,8 @@ if __name__ == "__main__":
                 ('MEN-t', fetch_MEN(which='test')),
                 ('SCWS', fetch_SCWS()),
                 ('MTurk', fetch_MTurk())]
+
+    logging.info(fuel.config.data_path)
     vocab_defs_fname = os.path.join(fuel.config.data_path[0], "vocab.txt")
     logging.info("using vocab for definition {}".format(vocab_defs_fname))
     # END SETUP
@@ -54,6 +56,7 @@ if __name__ == "__main__":
                         help="vocab size (GloVe only)")
 
     args = parser.parse_args()
+    logging.info(args.emb_filename)
     model_name = args.emb_filename.split('/')[-2]
 
     is_dict_embedding = args.emb_format.startswith('dict')        
