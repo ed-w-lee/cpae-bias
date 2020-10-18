@@ -6,7 +6,6 @@ import argparse
 import random
 import json
 from collections import defaultdict, Counter
-import matplotlib.pyplot as plt
 import numpy as np
 
 def main():
@@ -131,8 +130,6 @@ def main():
     n_terms_in_groups =  [n_terms for _, n_terms in group_sizes]
     sorted_idx = np.argsort(n_defs_in_groups)[::-1]
     #print n_defs_in_groups
-    #plt.hist(n_defs_in_groups[sorted_idx][1:], bins=100)
-    #plt.show()
     print "end of algorithm: counts of definitions:", [len(t) for t in terms_splits]
         
     print "stats:"
