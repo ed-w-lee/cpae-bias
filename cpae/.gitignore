@@ -1,4 +1,5 @@
 results/
 data/en_wn_full/
 data/en_wn_split/
+embeddings/
 **.pyc

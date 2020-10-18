@@ -18,11 +18,11 @@ RESULTS_DIR="results/en_wn_full"
 EMB_DIR="embeddings/en_wn_full"
 # The model name should be changed, depending on the number of epochs
 # TODO Could automate that and pick the latest created file?
-MODEL_FNAME="training_state.tar.after_batch_132250.tar"
+MODEL_FNAME="training_state.tar"
 
 shopt -s extglob
 
-for MODEL_DIR in $RESULTS_DIR/*w2v*
+for MODEL_DIR in $RESULTS_DIR/*
 do
 	MODEL=$(basename $MODEL_DIR)
 	echo $MODEL_DIR
