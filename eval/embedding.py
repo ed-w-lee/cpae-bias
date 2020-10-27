@@ -5,11 +5,14 @@ import pickle
 
 from gensim import models
 from tqdm import tqdm
+from pathlib import Path
+
+parent_dir = Path(os.path.realpath(__file__)).parent.parent
 
 
 def validate_embeds(embeds):
     '''
-    Validates that a set of embeddings is of the expected shape. 
+    Validates that a set of embeddings is of the expected shape.
     Namely, they look like:
     { lowercase word : numpy array with shape=(300,) dtype=float32 }
     '''
@@ -75,9 +78,9 @@ class Embedding:
 class EmbedCpae(Embedding):
     def __init__(
         self,
-        embed_path='embeddings/cpae-lam8.pkl',
-        cache_path='embeddings/cpae-lam8.pkl.cache',
-        gs_path='embeddings/cpae-lam8.filter.bin',
+        embed_path=f'{parent_dir}/embeddings/cpae-lam8.pkl',
+        cache_path=f'{parent_dir}/embeddings/cpae-lam8.pkl.cache',
+        gs_path=f'{parent_dir}/embeddings/cpae-lam8.filter.bin',
     ):
         def read_embeds():
             with open(embed_path, 'rb') as f:
@@ -90,9 +93,9 @@ class EmbedCpae(Embedding):
 class EmbedGlove(Embedding):
     def __init__(
         self,
-        embed_path='embeddings/glove.6B.300d.txt',
-        cache_path='embeddings/glove.6B.300d.pkl.cache',
-        gs_path='embeddings/glove.6B.300d.filter.bin',
+        embed_path=f'{parent_dir}/embeddings/glove.6B.300d.txt',
+        cache_path=f'{parent_dir}/embeddings/glove.6B.300d.pkl.cache',
+        gs_path=f'{parent_dir}/embeddings/glove.6B.300d.filter.bin',
         words=None,
     ):
         def read_embeds():
@@ -112,9 +115,9 @@ class EmbedGlove(Embedding):
 class EmbedWord2V(Embedding):
     def __init__(
         self,
-        embed_path='embeddings/google-news-w2v.bin',
-        cache_path='embeddings/google-news-w2v.pkl.cache',
-        gs_path='embeddings/google-news-w2v.filter.bin',
+        embed_path=f'{parent_dir}/embeddings/google-news-w2v.bin',
+        cache_path=f'{parent_dir}/embeddings/google-news-w2v.pkl.cache',
+        gs_path=f'{parent_dir}/embeddings/google-news-w2v.filter.bin',
         words=None,
     ):
         def read_embeds():
@@ -132,9 +135,9 @@ class EmbedWord2V(Embedding):
 class EmbedDict2V(Embedding):
     def __init__(
         self,
-        embed_path='embeddings/dict2vec-300d.vec',
-        cache_path='embeddings/dict2vec-300d.pkl.cache',
-        gs_path='embeddings/dict2vec-300d.filter.bin',
+        embed_path=f'{parent_dir}/embeddings/dict2vec-300d.vec',
+        cache_path=f'{parent_dir}/embeddings/dict2vec-300d.pkl.cache',
+        gs_path=f'{parent_dir}/embeddings/dict2vec-300d.filter.bin',
         words=None
     ):
         def read_embeds():
@@ -153,6 +156,8 @@ class EmbedDict2V(Embedding):
 
 
 if __name__ == "__main__":
+    print('parent_dir:', parent_dir)
+
     def parse_and_validate(name, init):
         print(f'Parsing {name} embeddings...')
         model = init()

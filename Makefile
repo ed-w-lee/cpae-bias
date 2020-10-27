@@ -1,4 +1,4 @@
-.PHONY: setup init clean
+.PHONY: setup init clean notebook
 
 setup: clean init
 
@@ -7,3 +7,6 @@ init:
 
 clean:
 	rm -f embeddings/*.cache embeddings/*.filter.bin
+
+notebook:
+	PYTHONPATH='$PYTHONPATH:/home/edwlee/Documents/stanford/cs230/cpae-bias' jupyter notebook
