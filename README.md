@@ -9,7 +9,4 @@ More specifically, this attempts to measure the gender bias present in Tom Bosc 
 - [x] Evaluate bias using WEAT tests
 - [x] Try to examine CPAE at a deeper level (e.g. can we do PCA or something?)
 - [ ] Look at dictionaries being used by dict2vec and CPAE -- can we see where connections go for each word? try to form an understanding of why we still see bias when formulating these definitions for dictionaries
-### Tentative
-- [ ] Try removing "offending" words (e.g. proper nouns) to see if that might affect something
-- [ ] Find other possible sources of bias, or a different construction of word embeddings that may not be affected by this as much.
-- [ ] Find new formulation of dict2vec or CPAE maybe?
+- [ ] Try removing possible offending words (e.g. proper nouns?) to see if that might affect something
