@@ -8,5 +8,5 @@ init:
 clean:
 	rm -f embeddings/*.cache embeddings/*.filter.bin
 
-notebook:
-	PYTHONPATH='$PYTHONPATH:/home/edwlee/Documents/stanford/cs230/cpae-bias' jupyter notebook
+notebook: 
+	PYTHONPATH="$$PYTHONPATH:/home/edwlee/Documents/stanford/cs230/cpae-bias" jupyter notebook
