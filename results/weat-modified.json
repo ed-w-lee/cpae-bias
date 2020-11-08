@@ -1,0 +1,101 @@
+{
+	"Science_Arts_Male_Female": {
+		"a_key": "Male attributes",
+		"Arts words": [
+			"poetry",
+			"art",
+			"dance",
+			"literature",
+			"novel",
+			"symphony",
+			"drama",
+			"sculpture"
+		],
+		"b_key": "Female attributes",
+		"Female attributes": [
+			"daughter",
+			"female",
+			"woman",
+			"girl",
+			"grandmother",
+			"sister",
+			"mother",
+			"aunt",
+			"she",
+			"her"
+		],
+		"Male attributes": [
+			"boy",
+			"brother",
+			"father",
+			"grandfather",
+			"male",
+			"man",
+			"son",
+			"uncle",
+			"he",
+			"him"
+		],
+		"Science words": [
+			"science",
+			"technology",
+			"physics",
+			"chemistry",
+			"experiment",
+			"astronomy",
+			"biology"
+		],
+		"x_key": "Science words",
+		"y_key": "Arts words"
+	},
+	"Math_Arts_Male_Female": {
+		"a_key": "Male attributes",
+		"Arts Words": [
+			"poetry",
+			"art",
+			"dance",
+			"literature",
+			"novel",
+			"symphony",
+			"drama",
+			"sculpture"
+		],
+		"b_key": "Female attributes",
+		"Female attributes": [
+			"daughter",
+			"female",
+			"woman",
+			"girl",
+			"grandmother",
+			"sister",
+			"mother",
+			"aunt",
+			"she",
+			"her"
+		],
+		"Male attributes": [
+			"boy",
+			"brother",
+			"father",
+			"grandfather",
+			"male",
+			"man",
+			"son",
+			"uncle",
+			"he",
+			"him"
+		],
+		"Math words": [
+			"math",
+			"algebra",
+			"geometry",
+			"calculus",
+			"equations",
+			"computation",
+			"numbers",
+			"addition"
+		],
+		"x_key": "Math words",
+		"y_key": "Arts Words"
+	}
+}
