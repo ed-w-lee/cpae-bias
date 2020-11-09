@@ -14,4 +14,5 @@ for word, defin in data.items():
 
     to_out[word] = defin
 
+
 print(json.dumps(to_out, indent=2))
