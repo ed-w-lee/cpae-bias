@@ -90,6 +90,38 @@ class EmbedCpae(Embedding):
         super().__init__(read_embeds, embed_path, cache_path=cache_path, gs_path=gs_path)
 
 
+class EmbedCpaeV2(Embedding):
+    def __init__(
+        self,
+        embed_path=f'{parent_dir}/embeddings/cpae-noproper.pkl',
+        cache_path=f'{parent_dir}/embeddings/cpae-noproper.pkl.cache',
+        gs_path=f'{parent_dir}/embeddings/cpae-noproper.filter.bin',
+        words=None
+    ):
+        def read_embeds():
+            with open(embed_path, 'rb') as f:
+                data = pickle.load(f, encoding='bytes')
+                return {k: v[0] for k, v in data.items() if not words or k in words}
+
+        super().__init__(read_embeds, embed_path, cache_path=cache_path, gs_path=gs_path)
+
+
+class EmbedCpaeV3(Embedding):
+    def __init__(
+        self,
+        embed_path=f'{parent_dir}/embeddings/cpae-pronoun.pkl',
+        cache_path=f'{parent_dir}/embeddings/cpae-pronoun.pkl.cache',
+        gs_path=f'{parent_dir}/embeddings/cpae-pronoun.filter.bin',
+        words=None
+    ):
+        def read_embeds():
+            with open(embed_path, 'rb') as f:
+                data = pickle.load(f, encoding='bytes')
+                return {k: v[0] for k, v in data.items() if not words or k in words}
+
+        super().__init__(read_embeds, embed_path, cache_path=cache_path, gs_path=gs_path)
+
+
 class EmbedGlove(Embedding):
     def __init__(
         self,
@@ -170,6 +202,8 @@ if __name__ == "__main__":
     cpae = parse_and_validate('CPAE', EmbedCpae)
     cpae_words = set(cpae.get_np().keys())
 
+    parse_and_validate('CPAEv2', lambda: EmbedCpaeV2(words=cpae_words))
+    parse_and_validate('CPAEv3', lambda: EmbedCpaeV3(words=cpae_words))
     parse_and_validate('GloVe', lambda: EmbedGlove(words=cpae_words))
     parse_and_validate('Word2V', lambda: EmbedWord2V(words=cpae_words))
     parse_and_validate('Dict2V', lambda: EmbedDict2V(words=cpae_words))

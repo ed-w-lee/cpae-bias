@@ -43,7 +43,8 @@
 			"chemistry",
 			"experiment",
 			"astronomy",
-			"biology"
+			"biology",
+            "laboratory"
 		],
 		"x_key": "Science words",
 		"y_key": "Arts words"

@@ -1,6 +1,8 @@
 import json
 import sys
 
+DIST=5
+
 data = None
 with open('data/en_wn_full/all.json') as fin:
     data = json.load(fin)
@@ -21,16 +23,17 @@ for word, defin in data.items():
 
     for i, x in enumerate(defin[0]):
         if x == 'he':
-            if 'she' not in defin[0][i-5:i+5]:
+            if 'she' not in defin[0][i-DIST:i+DIST]:
                 new_defin += ['he', 'or', 'she']
                 count += 1
                 continue
         if x == 'his':
-            if 'her' not in defin[0][i-5:i+5]:
+            if 'her' not in defin[0][i-DIST:i+DIST]:
                 new_defin += ['his', 'or', 'her']
                 count += 1
                 continue
         new_defin += [x]
     to_out[word] = [new_defin]
 
+print(count, file = sys.stderr)
 print(json.dumps(to_out, indent=2))

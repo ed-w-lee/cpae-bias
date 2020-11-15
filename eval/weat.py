@@ -1,11 +1,14 @@
 # Based off of https://github.com/chadaeun/weat_replication/ and https://github.com/hljames/compare-embedding-bias
 
 import argparse
-import embedding
 import json
 import numpy as np
 import random
 
+try:
+    from . import embedding
+except:
+    import embedding
 from math import factorial
 from sklearn.metrics.pairwise import cosine_similarity
 from sympy.utilities.iterables import multiset_permutations
@@ -124,6 +127,8 @@ if __name__ == "__main__":
 
     models = {
         'cpae': embedding.EmbedCpae(),
+        'cpae-np': embedding.EmbedCpaeV2(),
+        'cpae-np-pro': embedding.EmbedCpaeV3(),
         'd2v': embedding.EmbedDict2V(),
         'glove': embedding.EmbedGlove(),
         'w2v': embedding.EmbedWord2V()
